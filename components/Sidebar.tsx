@@ -7,14 +7,12 @@ const Sidebar: React.FC = () => {
             <h2 className="text-2xl font-bold mb-6">Admin Panel</h2>
             <nav className="space-y-4">
                 <Link href="/admin/dashboard">
-                    Dashboard
+                    <div className="block p-2 bg-gray-700 rounded">Dashboard</div>
                 </Link>
                 <Link href="/admin/users">
-                    Users
+                    <div className="block p-2 bg-gray-700 rounded">Users</div>
                 </Link>
-                <Link href="/admin/settings">
-                    <button className="block p-2 bg-gray-700 rounded">Settings</button>
-                </Link>
+
             </nav>
         </div>
     );
