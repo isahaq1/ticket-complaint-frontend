@@ -1,0 +1,30 @@
+
+
+  .menuItem {
+    padding: 10px 0;
+  }
+  
+  .link {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+  }
+  
+  .icon {
+    margin-right: 10px;
+  }
+  
+  .active {
+    font-weight: bold;
+    color: #0070f3;
+  }
+  
+  .submenu {
+    padding-left: 20px;
+  }
+  
+  .submenu .menuItem {
+    padding: 5px 0;
+  }
+  
