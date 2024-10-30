@@ -1,49 +1,49 @@
 "use client"
 import axiosInstance from '@/utils/axiosInstance';
 import { useEffect, useState } from 'react';
+import DataTable from '@/components/DataTable';
+import { Column } from 'react-table';
 
 interface User {
-  id: number;
-  name: string;
-  email: string;
+    id: number;
+    name: string;
+    email: string;
 }
 
-export default function UsersPage() {
-  const [users, setUsers] = useState<User[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+const UserListPage: React.FC = () => {
+    const [users, setUsers] = useState<User[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
+    useEffect(() => {
+        const fetchUsers = async () => {
 
-  useEffect(() => {
-    const fetchUsers = async () => {
-        const tresponse = await axiosInstance.get('/user-list'); 
-        console.log(tresponse);
-      try {
-        const response = await axiosInstance.get('/user-list'); // Adjust this endpoint as necessary
-        setUsers(response.data.data);
-      } catch (err) {
-        setError('Failed to load users');
-      } finally {
-        setLoading(false);
-      }
-    };
+            try {
+                const response = await axiosInstance.get('/user-list');
+                setUsers(response.data.data);
+            } catch (err) {
+                setError('Failed to load users');
+            } finally {
+                setLoading(false);
+            }
+        };
 
-    fetchUsers();
-  }, []);
+        fetchUsers();
+    }, []);
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>{error}</div>;
+    const columns: Column<User>[] = [
+        { Header: 'ID', accessor: 'id' },
+        { Header: 'Name', accessor: 'name' },
+        { Header: 'Email', accessor: 'email' },
 
-  return (
-    <div>
-      <h1 className="text-2xl font-bold mb-4">User List</h1>
-      <ul>
-        {users.map((user) => (
-          <li key={user.id} className="mb-2 border-b pb-2">
-            <h2 className="text-lg font-semibold">{user.name}</h2>
-            <p className="text-gray-600">{user.email}</p>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
+    ];
+
+    return (
+        <div style={{ padding: '20px' }}>
+            <h1>User List</h1>
+            <DataTable columns={columns} data={users} />
+        </div>
+    );
+};
+
+export default UserListPage;
+

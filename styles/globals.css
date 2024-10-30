@@ -1,3 +1,61 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* styles/globals.css or a specific CSS module */
+.sidebar {
+    position: fixed;
+    /* Fix the sidebar */
+    top: 0;
+    left: 0;
+    width: 200px;
+    /* Width of the sidebar */
+    height: 100%;
+    /* Full height */
+    background-color: #f4f4f4;
+    /* Sidebar background color */
+    padding: 10px;
+    /* Padding inside the sidebar */
+    overflow-y: auto;
+    /* Scroll if content is too long */
+    border-right: 1px solid #ddd;
+    /* Optional border */
+}
+
+.submenu {
+    padding-left: 10px;
+    /* Indentation for submenus */
+    list-style-type: none;
+    /* Remove bullets */
+}
+
+.sidebar ul {
+    list-style-type: none;
+    /* Remove bullets */
+    padding: 0;
+    /* Remove padding */
+}
+
+.sidebar li {
+    margin: 5px 0;
+    /* Spacing between items */
+}
+
+.sidebar a {
+    text-decoration: none;
+    /* Remove underline */
+    color: #333;
+    /* Text color */
+}
+
+.sidebar div {
+    padding: 5px;
+    /* Padding for clickable area */
+    transition: background-color 0.3s;
+    /* Transition for hover effect */
+}
+
+.sidebar div:hover {
+    background-color: #e2e2e2;
+    /* Change background on hover */
+}
