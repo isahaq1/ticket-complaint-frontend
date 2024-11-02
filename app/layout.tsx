@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { AuthProvider } from "../components/AuthProvider";
+import { ToastContainer } from 'react-toastify'
 
 import "./globals.css";
 
@@ -33,7 +34,7 @@ export default function RootLayout({
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-
+<ToastContainer position="top-right" autoClose={5000} />
           {children}
         </body>
       </html>

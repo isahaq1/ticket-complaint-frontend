@@ -4,6 +4,8 @@ import Link from "next/link";
 import styles from './Sidebar.module.css';
 import { usePathname } from 'next/navigation';
 import { MenuItem } from "@/components/MenuData";
+import { isAdmin } from "@/utils/auth";
+const admin = isAdmin();
 
 interface MenuItemProps {
   item: MenuItem;

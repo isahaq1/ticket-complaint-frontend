@@ -1,9 +1,11 @@
 "use client";
 
-import { useState, FormEvent } from 'react';
+import { useState,useEffect, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
 import WelcomeHeader from '@/components/WelcomeHeader';
 import axiosInstance from '@/utils/axiosInstance';
+import { isAuthenticated } from "@/utils/auth";
+import axios from 'axios';
 
 export default function Login() {
     const [email, setEmail] = useState('');
@@ -11,9 +13,26 @@ export default function Login() {
     const [error, setError] = useState<string | null>(null);
     const router = useRouter();
 
+
+
+    useEffect(() => {
+      // Check if user is already authenticated
+      if (isAuthenticated()) {
+        router.push("/admin/dashboard"); // Redirect to dashboard if logged in
+      }
+    }, [router]);
+
+    const fetchCsrfToken = async () => {
+        await axios.get('http://127.0.0.1:8000/sanctum/csrf-cookie', {
+            withCredentials: true, // Include credentials
+        });
+    };
+    
     const handleLogin = async (e: FormEvent) => {
         e.preventDefault();
         try {
+          
+            await fetchCsrfToken();
             const response = await axiosInstance.post('login', {
                 email,
                 password,
