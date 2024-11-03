@@ -1,23 +1,18 @@
 "use client"
 import React from 'react';
 import { useRouter } from 'next/navigation';
+import axiosInstance from '@/utils/axiosInstance';
 
 const LogoutButton: React.FC = () => {
     const router = useRouter();
 
     const handleLogout = async () => {
         // Call the logout API
-        await fetch('/api/logout', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                // Include any necessary authorization headers
-            },
-        });
+        const response = await axiosInstance.post('logout');
 
         // Clear the token from localStorage
         localStorage.removeItem('token');
-
+        localStorage.removeItem("authuser");
         // Redirect to the login page
         router.push('/login');
     };

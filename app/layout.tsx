@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { AuthProvider } from "../components/AuthProvider";
+import { AuthProvider } from "@/components/AuthProvider";
 import { ToastContainer } from 'react-toastify'
+
 
 import "./globals.css";
 

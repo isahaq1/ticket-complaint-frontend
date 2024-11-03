@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import WelcomeHeader from '@/components/WelcomeHeader';
 import axiosInstance from '@/utils/axiosInstance';
 import { isAuthenticated } from "@/utils/auth";
+
 import axios from 'axios';
 
 export default function Login() {
@@ -42,7 +43,7 @@ export default function Login() {
                 localStorage.setItem("token", response.data.token);
 
                 localStorage.setItem("authuser", JSON.stringify(response.data.data));
-                console.log(response.data.data);
+              location.reload();
                 router.push('admin/dashboard'); // Redirect to a dashboard or home
             }
         } catch (err) {

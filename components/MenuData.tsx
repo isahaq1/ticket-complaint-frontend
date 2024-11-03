@@ -96,5 +96,6 @@ const userMenuData: MenuItem[] = [
   },
 ];
 
+
 // Conditionally export the menu data based on the admin status
 export const menuData: MenuItem[] = isAdmin() ? adminMenuData : userMenuData;

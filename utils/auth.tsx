@@ -6,6 +6,6 @@ export const isAuthenticated = (): boolean => {
 export const checkAdmin = (): boolean => {
   const authuserinfo = localStorage.getItem("authuser");
   const userRole = authuserinfo ? (JSON.parse(authuserinfo)).role : "";
-  const isadmin = (userRole == 'admin' ? 'true' : '');
+  const isadmin = (userRole == 'admin' ? true : false);
   return !!isadmin;
 };
