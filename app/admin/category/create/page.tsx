@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from "react";
 import axiosInstance from '@/utils/axiosInstance';
+import { toast } from 'react-toastify';
 
 
 
@@ -18,10 +19,13 @@ const CategoryPage: React.FC = () => {
 
     try {
       const response = await axiosInstance.post("/categories", { name });
-      if (response.status === 201) {
-        setSuccess(true);
+      if (response.data.status == true) {
         setName("");
+        toast.success(response.data.message);
+      } else {
+        toast.error(response.data.errors);
       }
+
     } catch (err) {
       setError("Failed to create category. Please try again.");
     } finally {
