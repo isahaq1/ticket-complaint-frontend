@@ -3,6 +3,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 ## Getting Started
 Clone this Repo
 run your shell/terminal
+```
 npm install
 # or
 yarn install
