@@ -2,6 +2,8 @@
 import { IconType } from 'react-icons';
 import { usePathname } from 'next/navigation';
 import { FaHome, FaClipboardCheck,FaUserFriends,FaAngleDoubleRight } from 'react-icons/fa'; 
+import { isAdmin } from "@/utils/auth";
+const admin = isAdmin();
 
 export interface SubMenu {
     title: string;
