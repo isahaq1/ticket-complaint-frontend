@@ -1,6 +1,16 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
+Clone this Repo
+run your shell/terminal
+npm install
+# or
+yarn install
+
+creat environment file like .env.local in your project root
+and add under lines to .env.local
+
+NEXT_PUBLIC_API_URL=yourapi_endpoint/api
 
 First, run the development server:
 
