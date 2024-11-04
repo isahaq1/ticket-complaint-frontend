@@ -14,7 +14,7 @@ export default function Login() {
     const [error, setError] = useState<string | null>(null);
     const router = useRouter();
 
-
+ const backenroot = process.env.NEXT_PUBLIC_ROOT_URL;
 
     useEffect(() => {
       // Check if user is already authenticated
@@ -24,7 +24,7 @@ export default function Login() {
     }, [router]);
 
     const fetchCsrfToken = async () => {
-        await axios.get('http://127.0.0.1:8000/sanctum/csrf-cookie', {
+        await axios.get(backenroot+'/sanctum/csrf-cookie', {
             withCredentials: true, // Include credentials
         });
     };
