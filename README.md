@@ -12,7 +12,8 @@ creat environment file like .env.local in your project root
 and add under lines to .env.local
 
 NEXT_PUBLIC_API_URL=yourapi_endpoint/api
-//NEXT_PUBLIC_API_URL=http://127.0.0.1:8000/api
+NEXT_PUBLIC_API_URL=http://127.0.0.1:8000/api
+NEXT_PUBLIC_ROOT_URL=http://127.0.0.1:8001
 
 First, run the development server:
 
